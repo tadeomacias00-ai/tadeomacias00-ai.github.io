@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Cumpleaños Peña</title>
+
+<style>
+
+body{
+margin:0;
+font-family: Arial, Helvetica, sans-serif;
+background: linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+.card{
+width:90%;
+max-width:500px;
+margin:40px auto;
+background:#111827;
+border-radius:20px;
+padding:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+p{
+font-size:18px;
+}
+
+img{
+display:block;
+margin:20px auto;
+width:100%;
+border-radius:15px;
+}
+
+.footer{
+margin-top:20px;
+font-size:18px;
+color:#facc15;
+}
+
+button{
+margin-top:15px;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#22c55e;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.confetti{
+position:fixed;
+width:8px;
+height:8px;
+top:-10px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+</style>
+
+</head>
+
+<body onclick="iniciarTodo()">
+
+<div class="card">
+
+<h1>🎉 Feliz Cumpleaños Peña 🎉</h1>
+
+<p>
+Pásalo bien Pablin 😎<br>
+No se te olvide quién sigue siendo el papá de los pollitos 🐔🔥
+</p>
+
+<img src="<img src="IMG_20221201_101833.jpg">
+
+<p class="footer">
+🎂 Un año más cerca de jubilarte 🎂
+</p>
+
+<button onclick="iniciarTodo()">🎵 Tocar música</button>
+
+</div>
+
+<audio id="musica" loop>
+<source src="happybirthday.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// iniciar música
+function iniciarTodo(){
+document.getElementById("musica").play();
+}
+
+// intento de autoplay (puede o no funcionar)
+window.addEventListener("load", () => {
+setTimeout(() => {
+document.getElementById("musica").play().catch(()=>{});
+}, 1000);
+});
+
+// confeti
+function crearConfeti(){
+for(let i=0;i<150;i++){
+let c=document.createElement("div");
+c.classList.add("confetti");
+c.style.left=Math.random()*100+"vw";
+c.style.animationDuration=(Math.random()*3+2)+"s";
+c.style.backgroundColor="hsl("+Math.random()*360+",100%,50%)";
+document.body.appendChild(c);
+}
+}
+
+crearConfeti();
+
+</script>
+
+</body>
+</html>
